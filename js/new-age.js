@@ -1,32 +1,27 @@
 (function($) {
     "use strict"; // Start of use strict
 
-    // Smooth scrolling using jQuery easing
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: (target.offset().top - 48)
-                }, 1000, "easeInOutExpo");
-                return false;
-            }
-        }
+    // jQuery for page scrolling feature - requires jQuery Easing plugin
+    $(document).on('click', 'a.page-scroll', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: ($($anchor.attr('href')).offset().top - 54)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
     });
 
-    // Activate scrollspy to add active class to navbar items on scroll
+    // Highlight the top nav as scrolling occurs
     $('body').scrollspy({
         target: '#mainNav',
         offset: 54
     });
 
-    // Closes responsive menu when a link is clicked
+    // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse>ul>li>a').click(function() {
         $('.navbar-collapse').collapse('hide');
     });
 
-    // Collapse the navbar when page is scrolled
+    // jQuery to collapse the navbar on scroll
     $(window).scroll(function() {
         if ($("#mainNav").offset().top > 100) {
             $("#mainNav").addClass("navbar-shrink");
