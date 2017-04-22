@@ -391,8 +391,8 @@ footer {
 // Bootstrap Overrides
 .bg-primary {
     background: $theme-primary;
-    background: -webkit-linear-gradient($theme-primary , darken($theme-primary, 5%));
-    background: linear-gradient($theme-primary , darken($theme-primary, 5%));
+    background: -webkit-radial-gradient($theme-primary , darken($theme-primary, 15%));
+    background: radial-gradient($theme-primary , darken($theme-primary, 15%));
 }
 
 .text-primary {
